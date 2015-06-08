@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>svm by sods</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>svm</h1>
+        <p>MATLAB SVM toolbox written by Anton Schwaighofer</p>
+
+        <p class="view"><a href="https://github.com/sods/svm">View the Project on GitHub <small>sods/svm</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sods/svm/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sods/svm/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sods/svm">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="svm" class="anchor" href="#svm" aria-hidden="true"><span class="octicon octicon-link"></span></a>svm</h1>
+
+<p>This is Anton Schwaighofer's SVM toolbox for MATLAB. It used to be hosted by Anton on line but the page is down so we've added it here. </p>
+
+<p>Support Vector Machine toolbox for Matlab
+Version 2.51, January 2002</p>
+
+<p>Contents.m contains a brief description of all parts of this toolbox.</p>
+
+<p>Main features are:</p>
+
+<ul>
+<li><p>Except for the QP solver, all parts are written in plain Matlab. This
+guarantees for easy modification. Special kinds of kernels that require
+much computation (such as the Fisher kernel, which is based on a model of
+the data) can easily be incorporated.</p></li>
+<li><p>Extension to multi-class problems via error correcting output codes is
+included.</p></li>
+<li><p>Unless many other SVM toolboxes, this one can handle SVMs with 1norm
+or 2norm of the slack variables.</p></li>
+<li><p>For both cases, a decomposition algorithm is implemented for the training
+routine, together with efficient working set selection strategies.
+The training algorithm uses many of the ideas proposed by Thorsten
+Joachims for his SVMlight. It thus should exhibit a scaling behaviour that
+is comparable to SVMlight.</p></li>
+</ul>
+
+<p>This toolbox optionally makes use of a Matlab wrapper for an interior point
+code in LOQO style (Matlab wrapper by Steve Gunn, LOQO code by Alex Smola).
+To compile the wrapper, run
+  mex loqo.c pr_loqo.c
+Make sure you have turned on the compiler optimizations in mexopts.sh
+The LOQO code can be retrieved from
+  <a href="http://www.kernel-machines.org/code/prloqo.tar.gz">http://www.kernel-machines.org/code/prloqo.tar.gz</a>
+The wrapper comes directly from Steve Gunn.</p>
+
+<p>Copyright (c) Anton Schwaighofer (2001) 
+mailto:<a href="mailto:anton.schwaighofer@gmx.net">anton.schwaighofer@gmx.net</a></p>
+
+<p>This program is released unter the GNU General Public License.
+See License.txt for details.</p>
+
+<p>Changes in version 2.51:</p>
+
+<ul>
+<li>fixed bug in SVMTRAIN that prevented correct initialisation with
+NET.recompute==Inf</li>
+</ul>
+
+<p>Changes in version 2.5:</p>
+
+<ul>
+<li>Handling of multi-class problems with ECOC</li>
+<li>NET.recompute is set to Inf by default, thus all training is done
+incrementally by default.</li>
+<li>Handling the case of all training examples being -1 or +1 correctly</li>
+</ul>
+
+<p>Changes in version 2.4:</p>
+
+<ul>
+<li>Better selection of the initial working set</li>
+<li>Added workaround for a (rare) Matlab quadprog bug with badly conditioned
+matrices</li>
+<li>There is now a new kernel function 'rbffull' where a full matrix
+("covariance matrix") C may be put into an RBF kernel:
+K(X1,X2) = exp(-(X1-X2)'<em>C</em>(X1-X2))</li>
+</ul>
+
+<p>Changes in version 2.3:</p>
+
+<ul>
+<li>slightly more compact debug output</li>
+</ul>
+
+<p>Changes in version 2.2:</p>
+
+<ul>
+<li>New default values for parameter qpsize that make the whole toolbox
+<em>much</em> faster</li>
+<li>Workaround for a Matlab bug with sparse matrices</li>
+<li>Changed the definition of the RBF-Kernel: from |x-y|^2/(2<em>nin</em>param^2)
+to |x-y|^2/(nin*param). This means that all parameter settings for old
+versions need to be updated!</li>
+<li>A few minor things I can't remember</li>
+</ul>
+
+<p>Changes in version 2.1:
+Fixed a nasty bug at the KKT check</p>
+
+<p>Changes in version 2.0:
+All relevant routines have been updated to allow the use of a SVM with
+2norm of the slack variables (NET.use2norm==1).</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sods">sods</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
